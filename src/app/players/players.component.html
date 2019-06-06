@@ -1,0 +1,52 @@
+<!-- <div class="row">
+  <div class="col-sm-12 col-md-3 col-lg-4 text-center" *ngFor="let player of team.centers;">
+    <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}"> 
+    <span style="display: block">{{player.position}}</span>
+    <span style="display: block">{{player.name}}</span>
+  </div>
+</div> -->
+
+<!-- Centers -->
+<div class="row">
+  <div class="col-sm-12 col-md-3 col-lg-4 text-center" *ngFor="let player of team.centers;">
+    <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}"> 
+    <span style="display: block">{{player.position}}</span>
+    <span style="display: block">{{player.name}}</span>
+  </div>
+</div>
+
+<!-- Coaches -->
+<div class="row">
+  <div class="col-sm-12 col-md-3 col-lg-4 text-center" *ngFor="let player of team.coaches;">
+    <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}"> 
+    <span style="display: block">{{player.role}}</span>
+    <span style="display: block">{{player.name}}</span>
+  </div>
+</div>
+
+<!-- Defenses -->
+<div class="row">
+  <div class="col-sm-12 col-md-3 col-lg-4 text-center" *ngFor="let player of team.defenses;">
+    <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}"> 
+    <span style="display: block">{{player.position}}</span>
+    <span style="display: block">{{player.name}}</span>
+  </div>
+</div>
+
+<!-- Fordwards -->
+<div class="row">
+  <div *ngFor="let player of team.fordwards;">
+    <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}"> 
+    <span style="display: block">{{player.position}}</span>
+    <span style="display: block">{{player.name}}</span>
+  </div>
+</div>
+
+<!-- Goalkeepers -->
+<div class="row">
+  <div class="col-sm-12 col-md-3 col-lg-4 text-center" *ngFor="let player of team.goalkeepers;">
+    <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}"> 
+    <span style="display: block">{{player.position}}</span>
+    <span style="display: block">{{player.name}}</span>
+  </div>
+</div>

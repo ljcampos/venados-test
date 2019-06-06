@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://venados.dacodes.mx:443/api/",
+    "secure": true,
+    "pathRewrite": {
+    "^/api": ""
+  },
+    "changeOrigin": true
+  }
+}
