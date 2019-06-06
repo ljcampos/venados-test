@@ -21,8 +21,8 @@ export class ServicesService {
     return this._http.get<any[]>(`${this.API}/games`, httpOptions);
   }
 
-  getStatistics(): Observable<any[]> {
-    return this._http.get<any[]>(`${this.API}/statistics`, httpOptions);
+  getStatistics(): Observable<any> {
+    return this._http.get<any>(`${this.API}/statistics`, httpOptions);
   }
 
   getPlayers() : Observable<any> {

@@ -8,13 +8,15 @@ import { ErrorComponent } from './error/error.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { PlayersComponent } from './players/players.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ErrorComponent,
-    PlayersComponent
+    PlayersComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
