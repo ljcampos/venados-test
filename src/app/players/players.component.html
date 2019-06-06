@@ -1,52 +1,148 @@
-<!-- <div class="row">
-  <div class="col-sm-12 col-md-3 col-lg-4 text-center" *ngFor="let player of team.centers;">
-    <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}"> 
-    <span style="display: block">{{player.position}}</span>
-    <span style="display: block">{{player.name}}</span>
-  </div>
-</div> -->
+<!-- LOADER -->
+<div class="text-center" *ngIf="isLoading">
+  <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+  <span class="sr-only">Loading...</span>
+</div>
 
 <!-- Centers -->
+<h2 class="text-success">Centers</h2>
+<hr>
 <div class="row">
   <div class="col-sm-12 col-md-3 col-lg-4 text-center" *ngFor="let player of team.centers;">
-    <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}"> 
+    <a (click)="openPlayerModal(playerModal, player.number, 0)">
+      <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}">
+    </a>
     <span style="display: block">{{player.position}}</span>
     <span style="display: block">{{player.name}}</span>
   </div>
 </div>
 
+<h2 class="text-success">Coaches</h2>
+<hr>
 <!-- Coaches -->
 <div class="row">
-  <div class="col-sm-12 col-md-3 col-lg-4 text-center" *ngFor="let player of team.coaches;">
-    <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}"> 
+  <div class="col-sm-12 col-md-3 col-lg-4 text-center" *ngFor="let player of team.coaches; let i = index">
+    <a (click)="openCoacheModal(coacheModal, i, 1)">
+      <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}">
+    </a>
     <span style="display: block">{{player.role}}</span>
     <span style="display: block">{{player.name}}</span>
   </div>
 </div>
 
+<h2 class="text-success">Defences</h2>
+<hr>
 <!-- Defenses -->
 <div class="row">
   <div class="col-sm-12 col-md-3 col-lg-4 text-center" *ngFor="let player of team.defenses;">
-    <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}"> 
+    <a (click)="openPlayerModal(playerModal, player.number, 2)">
+      <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}">
+    </a>
     <span style="display: block">{{player.position}}</span>
     <span style="display: block">{{player.name}}</span>
   </div>
 </div>
 
+<h2 class="text-success">Fordwards</h2>
+<hr>
 <!-- Fordwards -->
 <div class="row">
-  <div *ngFor="let player of team.fordwards;">
-    <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}"> 
+  <div class="col-sm-12 col-md-3 col-lg-4 text-center" *ngFor="let player of team.forwards;">
+    <a (click)="openPlayerModal(playerModal, player.number, 3)">
+      <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}">
+    </a>
     <span style="display: block">{{player.position}}</span>
     <span style="display: block">{{player.name}}</span>
   </div>
 </div>
 
+<h2 class="text-success">Goalkeepers</h2>
+<hr>
 <!-- Goalkeepers -->
 <div class="row">
   <div class="col-sm-12 col-md-3 col-lg-4 text-center" *ngFor="let player of team.goalkeepers;">
-    <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}"> 
+    <a (click)="openPlayerModal(playerModal, player.number, 4)">
+      <img class="img-fluid img-thumbnail rounded-circle" src="{{player.image}}" alt="{{player.name}}">
+    </a>
     <span style="display: block">{{player.position}}</span>
     <span style="display: block">{{player.name}}</span>
   </div>
 </div>
+
+<!-- Modal -->
+<ng-template #playerModal let-modal>
+  <!-- <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ficha técnica</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> -->
+  <div class="modal-body" style="padding: 0;">
+    <button type="button" class="close pull-right" style="color:#fff;" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div class="text-center" style="background-color: #2E512B; color: #fff; padding: 20px 0;">
+      <h4>FICHA TÉCNICA</h4>
+      <img class="img-fluid img-thumbnail rounded-circle" style="max-height: 200px;" src="{{ _player.image }}" alt="{{_player.name}}">
+      <span style="display: block">{{ _player.name + " " + _player.first_surname + " " + _player.second_surname}}</span>
+      <span style="display: block">{{ _player.position }}</span>
+    </div>
+
+    <div class="text-center">
+        <span style="display: block; font-weight: bold;">FECHA DE NACIMIENTO</span>
+        <span style="display: block; margin-bottom: 5px;">{{ _player.birthday | date }}</span>
+
+        <span style="display: block; font-weight: bold;">LUGAR DE NACIMIENTO</span>
+        <span style="display: block; margin-bottom: 5px;">{{ _player.birth_place }}</span>
+
+        <span style="display: block; font-weight: bold;">PESO</span>
+        <span style="display: block; margin-bottom: 5px;">{{ _player.weight }} KG</span>
+
+        <span style="display: block; font-weight: bold;">ALTURA</span>
+        <span style="display: block; margin-bottom: 5px;">{{ _player.height }} M</span>
+
+        <span style="display: block; font-weight: bold;">EQUIPO ANTERIOR</span>
+        <span style="display: block; margin-bottom: 5px;">{{ _player.last_team }}</span>
+    </div>
+  </div>
+  <!-- <div class="modal-footer">
+  </div> -->
+</ng-template>
+
+<ng-template #coacheModal let-modal>
+  <!-- <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ficha técnica</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> -->
+  <div class="modal-body" style="padding: 0;">
+      <button type="button" class="close pull-right" style="color:#fff;" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="text-center" style="background-color: #2E512B; color: #fff; padding: 20px 0;">
+        <h4>FICHA TÉCNICA</h4>
+        <img class="img-fluid img-thumbnail rounded-circle" style="max-height: 200px;" src="{{ _coache.image }}" alt="{{_coache.name}}">
+        <span style="display: block">{{ _coache.name + " " + _coache.first_surname + " " + _coache.second_surname}}</span>
+        <span style="display: block">{{ _coache.role }}</span>
+      </div>
+
+      <div class="text-center">
+          <span style="display: block; font-weight: bold;">FECHA DE NACIMIENTO</span>
+          <span style="display: block; margin-bottom: 5px;">{{ _coache.birthday | date }}</span>
+
+          <span style="display: block; font-weight: bold;">LUGAR DE NACIMIENTO</span>
+          <span style="display: block; margin-bottom: 5px;">{{ _coache.birth_place }}</span>
+
+          <span style="display: block; font-weight: bold;">PESO</span>
+          <span style="display: block; margin-bottom: 5px;">{{ _coache.weight }} KG</span>
+
+          <span style="display: block; font-weight: bold;">ALTURA</span>
+          <span style="display: block; margin-bottom: 5px;">{{ _coache.height }} M</span>
+      </div>
+    </div>
+  <!-- <div class="modal-footer">
+  </div> -->
+</ng-template>
