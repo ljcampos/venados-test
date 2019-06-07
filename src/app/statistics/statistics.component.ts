@@ -27,9 +27,9 @@ export class StatisticsComponent implements OnInit {
         this._statistics = response.data.statistics;
         this.isLoading = false;
       }, 1000);
-
     }, error => {
       console.log('error:', error);
+      this.isLoading = false;
     });
   }
 

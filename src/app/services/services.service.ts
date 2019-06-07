@@ -17,8 +17,8 @@ export class ServicesService {
 
   constructor(private _http: HttpClient) { }
 
-  getGames(): Observable<any[]> {
-    return this._http.get<any[]>(`${this.API}/games`, httpOptions);
+  getGames(): Observable<any> {
+    return this._http.get<any>(`${this.API}/games`, httpOptions);
   }
 
   getStatistics(): Observable<any> {
@@ -29,11 +29,11 @@ export class ServicesService {
     return this._http.get<any>(`${this.API}/players`, httpOptions);
   }
 
-  getSponsors(): Observable<any[]> {
-    return this._http.get<any[]>(`${this.API}/sponsors`, httpOptions);
+  getSponsors(): Observable<any> {
+    return this._http.get<any>(`${this.API}/sponsors`, httpOptions);
   }
 
-  getNotifications(): Observable<any[]> {
-    return this._http.get<any[]>(`${this.API}/notifications`, httpOptions);
+  getNotifications(): Observable<any> {
+    return this._http.get<any>(`${this.API}/notifications`, httpOptions);
   }
 }

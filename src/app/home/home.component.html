@@ -1,3 +1,80 @@
-<p>
-  home works!
-</p>
+<div class="d-flex align-items-center justify-content-center" style="margin-bottom: 10px;">
+  <img class="img-fluid img-thumbnail rounded-circle" src="https://venados.dacodes.mx/img/venados.png" alt="venados_logotype">
+</div>
+
+<ul class="nav nav-pills nav-fill">
+  <li class="nav-item" style="border: 2px solid #7F7F7F;">
+    <a class="nav-link" (click)="showLeague(true)">COPA MX</a>
+  </li>
+  <li class="nav-item" style="border: 2px solid #7F7F7F;">
+    <a class="nav-link" (click)="showLeague(false)">ASCENSO MX</a>
+  </li>
+</ul>
+
+<!-- LOADER -->
+<div class="text-center" style="margin: 5px;" *ngIf="isLoading">
+  <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+  <span class="sr-only">Loading...</span>
+</div>
+
+<div *ngIf="isCopaActive">
+  <div *ngFor="let copa of copas">
+    <div class="row" style="padding: 20px 0">
+      <div class="col-md-2 d-flex align-items-center justify-content-center">
+        <span><i class="fa fa-calendar" aria-hidden="true"></i></span>
+        &nbsp;
+        <span>{{copa.datetime | date}}</span>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <img class="img-fluid img-thumbnail rounded-circle" style="max-height: 74px;" src="https://venados.dacodes.mx/img/venados.png" alt="venados_logotype">
+        <span style="display: block;">Venados F.C.</span>
+      </div>
+
+      <div class="col-md-2 col-md-2 d-flex align-items-center justify-content-center">
+        <h3 style="display: inline;">{{copa.home_score}}</h3> <strong>&nbsp;-&nbsp;</strong> <h3 style="display: inline;">{{copa.away_score}}</h3>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <img class="img-fluid img-thumbnail rounded-circle" style="max-height: 74px;" src="{{copa.opponent_image}}" alt="{{copa.opponent}}">
+        <span style="display: block;">{{copa.opponent}}</span>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <div class="text-center" style="padding: 20px 0" *ngIf="copas.length === 0 && !isLoading">
+    <p>No hay partidos!!!</p>
+  </div>
+</div>
+
+<div *ngIf="!isCopaActive">
+  <div *ngFor="let ascenso of ascensos">
+    <div class="row" style="padding: 20px 0">
+      <div class="col-md-2 d-flex align-items-center justify-content-center">
+        <span><i class="fa fa-calendar" aria-hidden="true"></i></span>
+        &nbsp;
+        <span>{{ascenso.datetime | date}}</span>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <img class="img-fluid img-thumbnail rounded-circle" style="max-height: 74px;" src="https://venados.dacodes.mx/img/venados.png" alt="venados_logotype">
+        <span style="display: block;">Venados F.C.</span>
+      </div>
+
+      <div class="col-md-2 col-md-2 d-flex align-items-center justify-content-center">
+        <h3 style="display: inline;">{{ascenso.home_score}}</h3> <strong>&nbsp;-&nbsp;</strong> <h3 style="display: inline;">{{ascenso.away_score}}</h3>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <img class="img-fluid img-thumbnail rounded-circle" style="max-height: 74px;" src="{{ascenso.opponent_image}}" alt="{{ascenso.opponent}}">
+        <span style="display: block;">{{ascenso.opponent}}</span>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <div class="text-center" style="padding: 20px 0" *ngIf="ascensos.length === 0 && !isLoading">
+    <p>No hay partidos!!!</p>
+  </div>
+</div>
