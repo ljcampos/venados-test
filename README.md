@@ -1,27 +1,16 @@
-# VenadosTest
+# Venados-Test Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
+This project was building whith Angular v6.
 
-## Development server
+## Requirements:
+* Clone the project.
+* Install dependencies: run **npm install** command.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Execute application:
+* Run the application with the command: **ng serve --proxy-config proxy.config.json**
+* Open application in: **http://localhost:4200/games**
 
-## Code scaffolding
+## Page Not Found:
+* For resources or pages not founds there are a custom page, example: **http://localhost:4200/gamesk1$$2#3**.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
